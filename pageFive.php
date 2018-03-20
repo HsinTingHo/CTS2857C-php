@@ -1,21 +1,32 @@
 <?php
+require_once "functions.php";
+if( ! session_id()){
+	session_start(); //Dose it recalculate every time back to index?
+}
+
+countVisit('pFive');
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Page Five</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	</head>
 	
 	<body>
+		
+		<div class = "navBar">
 		<nav>
 			<ul>
-				<li>Instruction</li>
-				<li>Email Visiting Record</li>
-				<li>Page Three</li>
-				<li>Page Four</li>
-				<li>Page Five</li>
+				<a href="index.php" ><li>Instruction</li>
+				<a href="emailForm.php"><li>Email Visiting Record</li></a>
+				<a href="pageThree.php"><li>Page Three</li></a>
+				<a href="pageFour.php"><li>Page Four</li></a>
+				<a href="pageFive.php" class="active"><li>Page Five</li></a>
 			</ul>
 		</nav>
+		
+		</div>
 		<h1>This Is Page Five</h1>
 	</body>
 </html>

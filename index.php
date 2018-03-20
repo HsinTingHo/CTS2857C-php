@@ -5,24 +5,42 @@
 2. Each time a page is visited, add 1 to a counter.
 3. display the number of times the page has been visited and list the number of times the other pages have been visited.
 */
-session_start();
-include_once "functions.php";
+
+require_once "functions.php";
+if( ! session_id()){
+	session_start(); //Dose it recalculate every time back to index?
+}
+
+countVisit('intro');
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Instruction</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	</head>
 	
 	<body>
+		<div class = "navBar">
 		<nav>
 			<ul>
-				<li>Instruction</li>
+				<a href="index.php" class="active"><li>Instruction</li>
 				<a href="emailForm.php"><li>Email Visiting Record</li></a>
 				<a href="pageThree.php"><li>Page Three</li></a>
-				<a href="pageFour.php"<li>Page Four</li></a>
-				<a href="pageFive.php"<li>Page Five</li></a>
+				<a href="pageFour.php"><li>Page Four</li></a>
+				<a href="pageFive.php"><li>Page Five</li></a>
 			</ul>
 		</nav>
+		
+		</div>
+		<div class="visitCount">
+			<ul>
+				<li><?php echo $countArray['intro']; ?></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
 	</body>
 </html>
