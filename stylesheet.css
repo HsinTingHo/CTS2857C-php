@@ -1,9 +1,15 @@
+/*nav bar */
+.navBar ul{
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 .navBar{
-	background-color: #333;
+	background-color: #373F51;
     overflow: hidden;
 }
 .navBar a.active{
-	background-color: #4CAF50;
+	background-color: #E43F6F;
     color: white;
 }
 
@@ -16,7 +22,45 @@
     font-size: 17px;
 }
 
-.navBar ahover {
-    background-color: #ddd;
-    color: black;
+.navBar a:hover {
+    background-color: #DFBBB1;
+    color: white;
+}
+
+/* content.php */
+.contentT {
+	margin: auto;
+	margin-top: 10%;
+    width: 50%;
+}
+.contentT table{
+	border: 2px solid  #E43F6F;
+	border-collapse: collapse;
+}
+
+.contentT th{
+	border: 2px solid  #E43F6F;
+	padding: 4px;
+}                                                               
+
+/* form */
+.emailform{
+	margin: auto;
+	margin-top: 10%;
+    width: 50%;
+}
+
+.btn{
+	background-color: #E43F6F;
+	color: white;
+	
+}
+.btn:hover {
+	background-color: #DFBBB1;
+    
+}
+
+/* error msg*/
+h1{
+	color:#E43F6F;
 }

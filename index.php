@@ -5,13 +5,14 @@
 2. Each time a page is visited, add 1 to a counter.
 3. display the number of times the page has been visited and list the number of times the other pages have been visited.
 */
-
-require_once "functions.php";
-if( ! session_id()){
-	session_start(); //Dose it recalculate every time back to index?
+session_start(); 
+if( !isset($_SESSION['index'])){
+	$_SESSION['index']=0;
+	
 }
+$_SESSION['index'] += 1;
 
-countVisit('intro');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,14 +34,26 @@ countVisit('intro');
 		</nav>
 		
 		</div>
-		<div class="visitCount">
-			<ul>
-				<li><?php echo $countArray['intro']; ?></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
+		<h2>Please visit every page at least once.</h2>
+		<!-- visit record table -->
+		<div class = "contentT">
+			<table>
+				<tr>
+					<th>Introduction</th>
+					<th>Email Visiting Record</th>
+					<th>Page Three</th>
+					<th>Page Four</th>
+					<th>Page Five</th>
+				</tr>
+				<tr>
+					<th><?php echo $_SESSION['index']; ?></th>
+					<th><?php if(isset($_SESSION['emailForm'])){ echo $_SESSION['emailForm']; }?></th>
+					<th><?php if(isset($_SESSION['pThree'])){ echo $_SESSION['pThree'];} ?></th>
+					<th><?php if(isset($_SESSION['pFour'])){ echo $_SESSION['pFour'];} ?></th>
+					<th><?php if(isset($_SESSION['pFive'])){ echo $_SESSION['pFive'];} ?></th>
+				</tr>
+			</table>
 		</div>
+		
 	</body>
 </html>

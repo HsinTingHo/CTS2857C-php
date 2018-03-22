@@ -1,10 +1,15 @@
 <?php
-require_once "functions.php";
-if( ! session_id()){
-	session_start(); //Dose it recalculate every time back to index?
-}
 
-countVisit('pFour');
+
+	
+session_start(); 
+if( !isset($_SESSION['pFour'])){
+	$_SESSION['pFour']=0;
+	
+}
+$_SESSION['pFour'] += 1;
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,5 +33,25 @@ countVisit('pFour');
 		
 		</div>
 		<h1>This Is Page Four</h1>
+		
+		<!-- visit record table -->
+		<div class = "contentT">
+			<table>
+				<tr>
+					<th>Introduction</th>
+					<th>Email Visiting Record</th>
+					<th>Page Three</th>
+					<th>Page Four</th>
+					<th>Page Five</th>
+				</tr>
+				<tr>
+					<th><?php echo $_SESSION['index']; ?></th>
+					<th><?php if(isset($_SESSION['emailForm'])){ echo $_SESSION['emailForm']; }?></th>
+					<th><?php if(isset($_SESSION['pThree'])){ echo $_SESSION['pThree'];} ?></th>
+					<th><?php if(isset($_SESSION['pFour'])){ echo $_SESSION['pFour'];} ?></th>
+					<th><?php if(isset($_SESSION['pFive'])){ echo $_SESSION['pFive'];} ?></th>
+				</tr>
+			</table>
+		</div>
 	</body>
 </html>
